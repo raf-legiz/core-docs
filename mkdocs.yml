@@ -1,0 +1,125 @@
+site_name: Uovio Docs # название сайта
+site_url: https://uovio.cc
+site_description: A short description of the project documentation site. # описание сайта
+copyright: Copyright &copy; 2026 Uovio
+
+theme:
+  logo: assets/logo.png # - логотип сайта
+  favicon: assets/logo.png # иконка сайта
+  name: material
+
+
+
+
+
+  font: # добавили шрифт Roboto Mono
+    text: Inter
+    code: Roboto Mono
+
+
+  features:
+   - navigation.tabs              # Отображает разделы верхнего уровня в виде вкладок под шапкой сайта
+   - navigation.tabs.sticky       # Закрепляет вкладки в верхней части экрана при прокрутке
+   - navigation.sections          # Группирует разделы в боковом меню для более удобной навигации
+   - navigation.expand            # Автоматически раскрывает текущий раздел в боковом меню
+   - navigation.path              # Добавляет хлебные крошки (навигационную цепочку)
+   - navigation.indexes           # Позволяет использовать index.md как главную страницу раздела
+   - navigation.prune             # Уменьшает размер HTML, генерируя только видимые элементы навигации
+   - navigation.instant           # Загружает страницы без полной перезагрузки браузера
+   - navigation.instant.progress  # Показывает индикатор прогресса при загрузке страниц
+   - navigation.tracking          # Автоматически обновляет URL при переходе между заголовками
+   - navigation.top               # Добавляет кнопку быстрого возврата наверх страницы
+
+   - search.suggest               # Показывает подсказки во время ввода поискового запроса
+   - search.highlight             # Подсвечивает найденные слова на странице
+   - search.share                 # Позволяет делиться ссылкой на результаты поиска
+
+   - content.code.copy            # Добавляет кнопку копирования для блоков кода
+   - content.code.annotate        # Поддерживает аннотации и пояснения к строкам кода
+   - content.tooltips             # Показывает всплывающие подсказки для ссылок и терминов
+
+   - content.action.edit          # Добавляет кнопку редактирования страницы в репозитории
+   - content.action.view          # Добавляет кнопку просмотра исходного Markdown-файла
+
+   - toc.follow                   # Синхронизирует оглавление справа с текущим разделом страницы
+
+  # ---------------------------------------------------------------
+  # Темная и светлая тема сайта
+  # ---------------------------------------------------------------
+
+  palette: 
+
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
+
+# ------------------------------------------------------
+
+
+
+markdown_extensions:
+  - toc:                               # Оглавление страницы
+      permalink: true                  # Добавляет постоянную ссылку возле каждого заголовка     
+              
+  - admonition                         # Блоки примечаний (note, tip, warning, danger и др.)
+
+  - pymdownx.details                   # Сворачиваемые и раскрываемые блоки
+
+  - pymdownx.tabbed:                   # Вкладки (Linux / Windows / Docker и т.д.)
+      alternate_style: true            # Современный стиль вкладок Material
+
+  - pymdownx.superfences               # Расширенные блоки кода и поддержка вложенных конструкций
+
+  - pymdownx.highlight:                # Улучшенная подсветка синтаксиса
+      anchor_linenums: true            # Делает номера строк кликабельными
+      line_spans: __span               # Создает span для каждой строки кода
+      pygments_lang_class: true        # Добавляет CSS-классы языков программирования
+      linenums:  false                  # Показывает номера строк
+
+  - pymdownx.inlinehilite              # Подсветка кода внутри строки текста
+
+  - pymdownx.snippets                  # Вставка содержимого файлов через include
+
+  - pymdownx.magiclink                 # Автоматически превращает URL и GitHub-ссылки в кликабельные
+
+  - pymdownx.tasklist:                 # Красивые чекбоксы задач
+      custom_checkbox: true            # Использует стиль Material для чекбоксов
+
+
+  - pymdownx.tilde                     # Поддержка ~~зачеркнутого текста~~
+
+  - pymdownx.mark                      # Выделение текста через ==важный текст==
+
+  - pymdownx.keys                      # Красивое отображение клавиш (++ctrl+c++)
+
+  - pymdownx.caret                     # Верхние индексы (x^2^, H^2^O)
+
+  - pymdownx.smartsymbols              # Преобразование (c) → ©, (tm) → ™ и др.
+
+  - md_in_html                         # Разрешает использовать Markdown внутри HTML
+
+  - attr_list                          # Позволяет задавать CSS-классы и атрибуты элементам
+
+  - toc:                               # Автоматическое оглавление страницы
+      permalink: true                  # Кнопка-ссылка возле каждого заголовка
+      permalink_title: Ссылка на раздел # Текст подсказки для кнопки ссылки
+      toc_depth: 4                     # Включает заголовки H1-H4 в оглавление
+     
+
+
+plugins:
+  - search # отвечает за полнотекстовый поиск по документации.
+
+extra:
+  generator: false  # Убирает надпись "Made with Material for MkDocs"
+
+extra_css:
+  - stylesheets/extra.css
