@@ -1,0 +1,1753 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A short description of the project documentation site.">
+      
+      
+      
+        <link rel="canonical" href="https://mydomain.org/mysite/KEENETIC/VLEES%20in%20KEENETIC/">
+      
+      
+        <link rel="prev" href="../../CDN/CDN%20XHHTP/">
+      
+      
+        <link rel="next" href="../../VPS/1.%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Установка и настройка VLESS на Keenetic - Uovio Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vless-keenetic" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Uovio Docs" class="md-header__button md-logo" aria-label="Uovio Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Uovio Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Установка и настройка VLESS на Keenetic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../AmneziaWG/AmneziaWG/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AmneziaWG
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../CDN/CDN%20XHHTP/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  CDN
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  KEENETIC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../VPS/1.%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  VPS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../X-RAY/vless%20%20moscow-germany/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  X RAY
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../core/INSTALL_OLCRTC_MANAGER_PANEL_WBSTREAM-14/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Uovio Docs" class="md-nav__button md-logo" aria-label="Uovio Docs" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Uovio Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../AmneziaWG/AmneziaWG/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AmneziaWG
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../CDN/CDN%20XHHTP/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CDN
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KEENETIC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    KEENETIC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Установка и настройка VLESS на Keenetic
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Установка и настройка VLESS на Keenetic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поддерживаемое оборудование
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритеты подключений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keenetic-443" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Перенесем сервисы Keenetic с 443 порта на другой порт
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entware-usb-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка системы пакетов репозитория Entware на USB-накопитель
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keenetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка необходимых компонентов KEENETIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entware-opkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка Entware (OPKG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение по SSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xkeen-hysteria2-vless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка XKeen (Hysteria2 / Vless)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Необходимо сгенерировать конфигурационный файл config.yaml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запуск Proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение к панели Zashboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ОТкрытие сервисных портов
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../VPS/1.%20%D0%9F%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPS
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../X-RAY/vless%20%20moscow-germany/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    X RAY
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../../core/INSTALL_OLCRTC_MANAGER_PANEL_WBSTREAM-14/" class="md-nav__link">
+      
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Поддерживаемое оборудование
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Приоритеты подключений
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keenetic-443" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Перенесем сервисы Keenetic с 443 порта на другой порт
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entware-usb-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка системы пакетов репозитория Entware на USB-накопитель
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keenetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка необходимых компонентов KEENETIC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entware-opkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка Entware (OPKG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение по SSH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xkeen-hysteria2-vless" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Установка XKeen (Hysteria2 / Vless)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Необходимо сгенерировать конфигурационный файл config.yaml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Запуск Proxy
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Подключение к панели Zashboard
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ОТкрытие сервисных портов
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    KEENETIC
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="vless-keenetic">Установка и настройка VLESS на Keenetic<a class="headerlink" href="#vless-keenetic" title="Ссылка на раздел">&para;</a></h1>
+<h2 id="_1">Поддерживаемое оборудование<a class="headerlink" href="#_1" title="Ссылка на раздел">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Модель</th>
+<th>CPU</th>
+<th>RAM</th>
+<th>USB</th>
+<th>VPN (WireGuard)</th>
+<th>VLESS (реально)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hopper</strong></td>
+<td>2×900 MHz</td>
+<td>256 MB</td>
+<td>USB 3.0</td>
+<td>~130 Mbps ([Keenetic][1])</td>
+<td>80–120 Mbps</td>
+</tr>
+<tr>
+<td><strong>Giga</strong></td>
+<td>2×1.3 GHz</td>
+<td>512 MB</td>
+<td>USB 3.0</td>
+<td>~400–500 Mbps</td>
+<td>250–400 Mbps</td>
+</tr>
+<tr>
+<td><strong>Hero</strong></td>
+<td>2×1.3 GHz</td>
+<td>512 MB</td>
+<td>USB 3.0 + 2.0</td>
+<td>~460 Mbps ([Keenetic][1])</td>
+<td>350–500 Mbps</td>
+</tr>
+<tr>
+<td><strong>Titan</strong></td>
+<td>3×1.8 GHz</td>
+<td>1 GB</td>
+<td>USB 3.2 + 2.0</td>
+<td>~900 Mbps ([Keenetic][1])</td>
+<td>600–900 Mbps</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Необходимо сбросить настройки wifi роутера до заводских настроек. </li>
+<li>Подгатавливаем флешку.</li>
+</ol>
+<h2 id="_2">Приоритеты подключений<a class="headerlink" href="#_2" title="Ссылка на раздел">&para;</a></h2>
+<ol>
+<li>Перейдите в раздел Приоритеты подключений → Политики доступа в интернет</li>
+<li>
+<p>Создайте политику с именем <code>XKeen</code></p>
+</li>
+<li>
+<p>Выберите способ доступа к интернету — отметьте провайдера или нескольких</p>
+</li>
+</ol>
+<details class="warning">
+<summary>SWAP</summary>
+<p>Доступна «Многопутевая передача». Используйте её, если у вас два провайдера.</p>
+</details>
+<ol>
+<li>
+<p>Перейдите в раздел Приоритеты подключений → Применение политик</p>
+</li>
+<li>
+<p>Добавьте в созданную политику <code>XKeen</code> устройства</p>
+</li>
+</ol>
+<p><img alt="Giga screenshot" src="../images/rad.gif" /></p>
+<details class="info">
+<summary>Xkeen</summary>
+<p>Все клиенты или сеть, подключённые к политике XKeen, будут работать через прокси.</p>
+</details>
+<h2 id="keenetic-443">Перенесем сервисы Keenetic с 443 порта на другой порт<a class="headerlink" href="#keenetic-443" title="Ссылка на раздел">&para;</a></h2>
+<details class="note">
+<summary>CLI</summary>
+<ul>
+<li>Переходим в CLI роутера, данную информацию вводим с троку браузера.
+ <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="m">192</span>.168.1.1/a
+</span></code></pre></div></li>
+<li>
+<p>Задаём новый порт: 
+ <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>ip<span class="w"> </span>http<span class="w"> </span>ssl<span class="w"> </span>port<span class="w"> </span><span class="o">{</span>port<span class="o">}</span><span class="w">  </span><span class="c1"># (1)!</span>
+</span></code></pre></div></p>
+</li>
+<li>
+<p><code>{port}</code>: Здесь указываем новый порт, Например 5443, 8443 - С данного порта будет доступено удаленное управление KEENETIC </p>
+</li>
+<li>
+<p>Сохраняем параметры 
+ <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>system<span class="w"> </span>configuration<span class="w"> </span>save
+</span></code></pre></div></p>
+</li>
+</ul>
+</details>
+<h2 id="entware-usb-">Установка системы пакетов репозитория Entware на USB-накопитель<a class="headerlink" href="#entware-usb-" title="Ссылка на раздел">&para;</a></h2>
+<div class="admonition note">
+<ol>
+<li>Необходимо любая флешка. Если будем использовать файл подкачки, то лучше использовать высокоростную. </li>
+<li>Необходимо скачать и установить программу <a href="https://www.partitionwizard.com/">MiniTool Partition Wizard Free Edition</a></li>
+<li>Создать два раздела <strong>swap</strong> - подкачка и отдельный раздел отформатированный под EXT4, где будет распологаться XKeen.</li>
+</ol>
+</div>
+<details class="warning">
+<summary>SWAP</summary>
+<p>Ядро системы имеет ограничение на размер области SWAP. Обычно не требуется более чем в три раза превышать размер ОЗУ области. Если размер раздела превышает системное ограничение, в журнал будет выведено предупреждение об этом (например, такое: <code>Truncating oversized swap area, only using 2097152k out of 8388604k</code>) и использоватьс
+ я в качестве SWAP будет лишь часть выделенного раздела. Справочная информация <a href="https://support.keenetic.ru/ultra/kn-1811/ru/20978-preparing-a-usb-drive-as-storage-and-activating-a-swap-partition.html">KEENETIC</a></p>
+</details>
+<p><img alt="Giga screenshot" src="../images/ras.gif" />
+После того, как отформатировали флешку в нужные разделы, его необходимо вставить в KEENETIC</p>
+<h2 id="keenetic">Установка необходимых компонентов KEENETIC<a class="headerlink" href="#keenetic" title="Ссылка на раздел">&para;</a></h2>
+<p><code>Управление</code>  → <code>Параметры системы</code>   →  <code>Компоненты</code></p>
+<details class="warning">
+<summary>Набор необходимых компонентов</summary>
+<ul>
+<li>Интерфейс USB</li>
+<li>Файловая система Ext</li>
+<li>Общий доступ к файлам и принтерам по протоколу SMB</li>
+<li>Поддержка открытых пакетов</li>
+<li>Прокси-сервер DNS-over-TLS</li>
+<li>Прокси-сервер DNS-over-HTTPS</li>
+<li>Протокол IPv6</li>
+<li>Модули ядра подсистемы Netfilter</li>
+</ul>
+</details>
+<details class="warning">
+<summary>ВАЖНО !</summary>
+<p>Важно: После установки компонентов роутер может автоматически перезагрузиться. Дождитесь полной загрузки системы.</p>
+</details>
+<details class="warning">
+<summary>СОВЕТ</summary>
+<p>Если какого-то компонента нет — обновите прошивку Keenetic до последней версии.</p>
+</details>
+<p><img alt="Giga screenshot" src="../images/rag.gif" /></p>
+<h2 id="entware-opkg">Установка Entware (OPKG)<a class="headerlink" href="#entware-opkg" title="Ссылка на раздел">&para;</a></h2>
+<p><code>Entware (OPKG)</code> — это менеджер пакетов Linux, необходимый для установки <code>Xray</code>, <code>VLESS</code> и скрипта <code>XKeen</code>. Для установки требуется USB-накопитель с файловой системой <code>EXT4</code>.</p>
+<ol>
+<li>Убедитесь, что USB-накопитель подключён и отображается в веб-интерфейсе роутера.</li>
+</ol>
+<p>В веб-интерфейсе Keenetic перейдите в <code>Приложения</code> → <code>Диски и принтеры</code></p>
+<details class="warning">
+<summary>СОВЕТ</summary>
+<p>Если накопитель не отображается — убедитесь, что установлены компоненты <code>USB</code> и Файловая система <code>EXT4</code>.</p>
+</details>
+<ol>
+<li>Выбор архива Entware в зависимости от модели роутера</li>
+</ol>
+<details class="question">
+<summary>Entware</summary>
+<table>
+<thead>
+<tr>
+<th>Архитектура</th>
+<th>Архив</th>
+<th>Поддерживаемая модель</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>4G (KN-1212)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Omni (KN-1410)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Extra (KN-1710)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Extra (KN-1711)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Extra (KN-1713)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Giga (KN-1010)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Giga (KN-1011)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Ultra (KN-1810)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Viva (KN-1910)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Viva (KN-1912)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Viva (KN-1913)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Giant (KN-2610)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Hero 4G (KN-2310)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Hero 4G (KN-2311)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Hopper (KN-3810)</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Zyxel Keenetic II / III</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Extra / Extra II</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Giga II / III</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Omni / Omni II</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Viva</td>
+</tr>
+<tr>
+<td>🟢 <strong>mipsel</strong></td>
+<td><a href="https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz">mipsel-installer.tar.gz</a></td>
+<td>Ultra / Ultra II</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Ultra SE (KN-2510)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Giga SE (KN-2410)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>DSL (KN-2010)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Skipper DSL (KN-2112)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Duo (KN-2110)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Hopper DSL (KN-3610)</td>
+</tr>
+<tr>
+<td>🟡 <strong>mips</strong></td>
+<td><a href="https://bin.entware.net/mipssf-k3.4/installer/mips-installer.tar.gz">mips-installer.tar.gz</a></td>
+<td>Zyxel Keenetic DSL / LTE / VOX</td>
+</tr>
+<tr>
+<td>🔵 <strong>aarch64</strong></td>
+<td><a href="https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz">aarch64-installer.tar.gz</a></td>
+<td>Peak (KN-2710)</td>
+</tr>
+<tr>
+<td>🔵 <strong>aarch64</strong></td>
+<td><a href="https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz">aarch64-installer.tar.gz</a></td>
+<td>Ultra (KN-1811)</td>
+</tr>
+<tr>
+<td>🔵 <strong>aarch64</strong></td>
+<td><a href="https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz">aarch64-installer.tar.gz</a></td>
+<td>Giga (KN-1012)</td>
+</tr>
+<tr>
+<td>🔵 <strong>aarch64</strong></td>
+<td><a href="https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz">aarch64-installer.tar.gz</a></td>
+<td>Hopper (KN-3811)</td>
+</tr>
+<tr>
+<td>🔵 <strong>aarch64</strong></td>
+<td><a href="https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz">aarch64-installer.tar.gz</a></td>
+<td>Hopper SE (KN-3812)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<ol>
+<li>
+<p>В веб-интерфейсе роутера перейдите в <code>Приложения</code> → <code>Диски и принтеры</code>.</p>
+</li>
+<li>
+<p>Выберите подключённый USB-накопитель и нажмите Создать папку.</p>
+</li>
+<li>
+<p>Назовите папку <code>install</code> и поместите в неё ранее скачанный архив <code>Entware</code>.</p>
+</li>
+<li>
+<p>Запуск установки Entware</p>
+<ul>
+<li>В веб-интерфейсе Keenetic: <code>Приложения</code> → <code>OPKG</code></li>
+<li>Выберите USB-накопитель и в поле Init-скрипт укажите:</li>
+</ul>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">     </span>/opt/etc/init.d/rc.unslung
+</span></code></pre></div>
+ - Нажмите Сохранить и дождитесь завершения установки</p>
+</li>
+</ol>
+<div class="admonition success">
+<p class="admonition-title">Успешная установка</p>
+<p>Успешная установка Entware отображается в системном журнале без ошибок. После этого можно переходить к подключению по SSH.</p>
+</div>
+<details class="warning">
+<summary>ВАЖНО !!!</summary>
+<p>Важно! Если Entware не устанавливается — проверьте:
+      - правильность выбранного архива
+      - файловую систему EXT4
+      - корректную работу USB-накопителя</p>
+</details>
+<h2 id="ssh">Подключение по SSH<a class="headerlink" href="#ssh" title="Ссылка на раздел">&para;</a></h2>
+<p>Подключитесь к роутеру по SSH (Putty / MobaXterm):</p>
+<p>IP: 192.168.1.1
+Порт: 22 или 222
+Логин: root
+Пароль: keenetic
+При вводе пароля символы не отображаются</p>
+<p>Подключение, для того чтобы запустить cmd выполните слеующию комбинацию <code>win</code> + <code>r</code> </p>
+<p>следующей комбинацией подключаемся:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ssh<span class="w"> </span>root@192.168.1.1<span class="w"> </span>-p22
+</span></code></pre></div>
+<p>Пароль</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>keenetic
+</span></code></pre></div>
+<p>Обновите пакеты Entware:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>opkg<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>opkg<span class="w"> </span>upgrade
+</span></code></pre></div>
+<h2 id="xkeen-hysteria2-vless">Установка XKeen (Hysteria2 / Vless)<a class="headerlink" href="#xkeen-hysteria2-vless" title="Ссылка на раздел">&para;</a></h2>
+<p>Скачайте и запустите установщик XKeen:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>opkg<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>tar<span class="w"> </span>unzip<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-sOfL<span class="w"> </span>https://raw.githubusercontent.com/RockBlack-VPN/XKeen/main/install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>./install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./install.sh
+</span></code></pre></div>
+<details class="warning">
+<summary>ВАЖНО! Если установка не запускается, води команды по отдельности. После эиого должно заработать.</summary>
+</details>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>opkg<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span>tar<span class="w"> </span>unzip
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-sOfL<span class="w"> </span>https://raw.githubusercontent.com/RockBlack-VPN/XKeen/main/install.sh
+</span></code></pre></div></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>chmod<span class="w"> </span>+x<span class="w"> </span>./install.sh
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>./install.sh
+</span></code></pre></div>
+<div class="admonition success">
+<p class="admonition-title">Успешная установка</p>
+<p>Успешная установка Entware отображается в системном журнале без ошибок. После этого можно переходить к подключению по SSH.</p>
+</div>
+<p>Во время установки, если есть необходимость включайте следующее:</p>
+<ul>
+<li>GeoIP</li>
+<li>GeoSite</li>
+<li>Автообновление</li>
+<li>Выберите ядро проксирования для загрузки и установки: <code>3. Xray + Mihomo</code> </li>
+</ul>
+<h2 id="configyaml">Необходимо сгенерировать конфигурационный файл <code>config.yaml</code><a class="headerlink" href="#configyaml" title="Ссылка на раздел">&para;</a></h2>
+<ol>
+<li>
+<p>Переходим на генератор конфигурация  <a href="https://generator.rockblack.pro/">config.yaml</a>. После генерации конфигурации, скачиваем данный файл. </p>
+</li>
+<li>
+<p>Заходим в настройки Wifi роутера KEENETIC и переходим в <code>Управление</code> -&gt; Приложение, переходим в файловую систему флешки и переходим к следующей папке <code>/etc/mihomo/</code> В папке <code>mihomo</code> заменяем файл <code>config.yaml</code>.</p>
+</li>
+</ol>
+<h2 id="proxy">Запуск Proxy<a class="headerlink" href="#proxy" title="Ссылка на раздел">&para;</a></h2>
+<ol>
+<li>Переключаемся на ядро Mihomo </li>
+</ol>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>xkeen -mihomo
+</span></code></pre></div>
+2. Запускаем XKeen для работы с Hysteria2</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>xkeen -start
+</span></code></pre></div>
+<ol>
+<li>Проверяем статус запуска Xkeen
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>xkeen -status
+</span></code></pre></div></li>
+</ol>
+<h2 id="zashboard">Подключение к панели Zashboard<a class="headerlink" href="#zashboard" title="Ссылка на раздел">&para;</a></h2>
+<p>Для мониторинга и управления необходимо использовать веб панель:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>http://192.168.1.1:9090/ui/
+</span></code></pre></div></p>
+<h2 id="_3">ОТкрытие сервисных портов<a class="headerlink" href="#_3" title="Ссылка на раздел">&para;</a></h2>
+<p>📱 WhatsApp</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,3478,46420
+</span></code></pre></div>
+<p>💬 Telegram</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,596:599,1400,5222
+</span></code></pre></div>
+<p>📞 Viber</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,9443,2233,543
+</span></code></pre></div>
+<p>🎤 Discord</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,50000:50030
+</span></code></pre></div>
+<p>🎮 Throne and Liberty</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,10000,11005
+</span></code></pre></div>
+<p>🎮 Roblox</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,49152:65535
+</span></code></pre></div>
+<p>🎮 Xbox Cloud Gaming</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,3544
+</span></code></pre></div>
+<p>🎮 Supercell</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,9339
+</span></code></pre></div>
+<p>🟩 Minecraft Java</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>xkeen<span class="w"> </span>-ap<span class="w"> </span><span class="m">80</span>,443,25565
+</span></code></pre></div>
+<p>Перезапуск</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>xkeen<span class="w"> </span>-restart
+</span></code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Uovio
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.prune", "navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tooltips", "content.action.edit", "content.action.view", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
