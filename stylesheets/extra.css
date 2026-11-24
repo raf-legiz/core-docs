@@ -1,0 +1,971 @@
+/* ==========================================================================
+   HEADER — LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+
+  /* Слегка серый фон шапки */
+  --md-primary-fg-color: #f3f4f6;
+
+  /* Цвет текста, логотипа и иконок */
+  --md-primary-bg-color: #111827;
+
+  /* Цвет активных элементов и hover */
+  --md-accent-fg-color: #2563eb;
+}
+
+
+/* ==========================================================================
+   HEADER — DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+
+  /* Угольный цвет шапки */
+  --md-primary-fg-color: #1c1c1c;
+
+  /* Цвет текста, логотипа и иконок */
+  --md-primary-bg-color: #f8fafc;
+
+  /* Цвет активных элементов и hover */
+  --md-accent-fg-color: #60a5fa;
+}
+
+
+/* ==========================================================================
+   SIDEBAR — LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+
+  /* Фон боковой панели */
+  --md-default-bg-color: #f5f6f8;
+
+  /* Основной текст навигации */
+  --md-default-fg-color: #1f2937;
+
+  /* Вторичный текст, вложенные разделы */
+  --md-default-fg-color--light: #6b7280;
+
+  /* Активный раздел, ссылки, индикаторы */
+  --md-accent-fg-color: #2563eb;
+}
+
+
+/* ==========================================================================
+   SIDEBAR — DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+
+  /* Угольный фон боковой панели */
+  --md-default-bg-color: #1c1c1c;
+
+  /* Основной текст навигации */
+  --md-default-fg-color: #f3f4f6;
+
+  /* Вторичный текст */
+  --md-default-fg-color--light: #9ca3af;
+
+  /* Активный раздел, ссылки, индикаторы */
+  --md-accent-fg-color: #60a5fa;
+}
+/* ==========================================================================
+   Цвет текста приначажии в боковом меню
+   ========================================================================== */
+/* Светлая тема */
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: #1d4ed8;
+}
+
+/* Тёмная тема */
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #93c5fd;
+}
+
+
+
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
+
+/* Контейнер блока кода */
+.highlight {
+
+  /* Скругление */
+  border-radius: 10px;
+
+  /* Тонкая рамка */
+  border: 1px solid;
+
+  /* Корректное скругление внутренних элементов */
+  overflow: hidden;
+
+  /* Небольшая глубина */
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.04);
+
+  /* Отступы сверху и снизу */
+  margin: 1rem 0;
+}
+
+/* Код внутри */
+.highlight pre {
+  margin: 0;
+}
+
+/* Кнопка копирования */
+.md-clipboard {
+  opacity: .6;
+  transition: .2s ease;
+}
+
+.md-clipboard:hover {
+  opacity: 1;
+}
+
+/* Номера строк */
+.highlighttable .linenos,
+.highlight .linenos {
+  opacity: .45;
+  user-select: none;
+}
+
+/* Выделенная строка */
+.highlight .hll {
+  border-left: 3px solid var(--md-accent-fg-color);
+}
+
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+
+  /* Текст кода */
+  --md-code-fg-color: #1f2937;
+
+  /* Фон блока */
+  --md-code-bg-color: #f8fafc;
+}
+
+[data-md-color-scheme="default"] .highlight {
+
+  /* Лёгкая окантовка */
+  border-color: rgba(17,24,39,.08);
+
+  /* Мягкая тень */
+  box-shadow:
+    0 1px 2px rgba(17,24,39,.04);
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+
+  /* Цвет текста */
+  --md-code-fg-color: #e5e7eb;
+
+  /* Угольный фон */
+  --md-code-bg-color: #242424;
+}
+
+[data-md-color-scheme="slate"] .highlight {
+
+  /* Светлая окантовка */
+  border-color: rgba(255,255,255,.06);
+
+  /* Очень лёгкая тень */
+  box-shadow:
+    0 1px 3px rgba(0,0,0,.25);
+}
+
+/* ==========================================================================
+   CODE BLOCKS
+   ========================================================================== */
+
+.highlight {
+
+  /* Скруглённые углы */
+  border-radius: 10px;
+
+  /* Синяя окантовка */
+  border: 2px solid var(--md-accent-fg-color);
+
+  /* Чтобы содержимое не выходило за скругление */
+  overflow: hidden;
+}
+
+/* Убираем лишние отступы внутри */
+.highlight pre {
+  margin: 0;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .highlight {
+  border: 2px solid #2563eb;
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .highlight {
+  border: 2px solid #60a5fa;
+}
+
+/* ==========================================================================
+   SEARCH
+   ========================================================================== */
+
+/* Основной контейнер поиска */
+.md-search {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Форма поиска */
+.md-search__form {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Внутренний контейнер */
+.md-search__inner {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Поле ввода */
+.md-search__input {
+  border-radius: 12px;
+}
+
+/* Выпадающий список результатов */
+.md-search__output {
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+/* Активное состояние поиска */
+.md-search[data-md-state="active"] {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .md-main {
+
+  background-image:
+
+    /* Крупные вертикальные направляющие */
+    linear-gradient(
+      90deg,
+      rgba(37,99,235,.06) 1px,
+      transparent 1px
+    ),
+
+    /* Крупные горизонтальные направляющие */
+    linear-gradient(
+      rgba(37,99,235,.06) 1px,
+      transparent 1px
+    ),
+
+    /* Мелкая сетка */
+    linear-gradient(
+      90deg,
+      rgba(17,24,39,.025) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      rgba(17,24,39,.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    128px 128px,
+    128px 128px,
+    32px 32px,
+    32px 32px;
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .md-main {
+
+  background-image:
+
+    linear-gradient(
+      90deg,
+      rgba(96,165,250,.08) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      rgba(96,165,250,.08) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.03) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      rgba(255,255,255,.03) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    128px 128px,
+    128px 128px,
+    32px 32px,
+    32px 32px;
+}
+
+
+
+/* ==========================================================================
+   ADMONITIONS
+   Современный стиль для Material for MkDocs
+   Светлая тема: мягкий серый фон
+   Тёмная тема: угольный фон
+   ========================================================================== */
+
+
+/* ==========================================================================
+   БАЗОВЫЙ КОНТЕЙНЕР
+   ========================================================================== */
+
+.md-typeset .admonition,
+.md-typeset details {
+
+  /* Скругление углов */
+  border-radius: 10px;
+
+  /* Убираем стандартную рамку Material */
+  border: none;
+
+  /* Цветная полоса слева */
+  border-left: 4px solid;
+
+  /* Небольшая глубина */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+
+  /* Отступы */
+  margin: 1rem 0;
+
+  /* Чтобы внутренние элементы соблюдали скругление */
+  overflow: hidden;
+}
+
+
+/* ==========================================================================
+   СВЕТЛАЯ ТЕМА
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .md-typeset .admonition,
+[data-md-color-scheme="default"] .md-typeset details {
+
+  /* Фон блока */
+  background: #f8fafc;
+
+  /* Лёгкая окантовка */
+  border-top: 1px solid rgba(17, 24, 39, 0.06);
+  border-right: 1px solid rgba(17, 24, 39, 0.06);
+  border-bottom: 1px solid rgba(17, 24, 39, 0.06);
+}
+
+
+/* ==========================================================================
+   ТЁМНАЯ ТЕМА
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .md-typeset .admonition,
+[data-md-color-scheme="slate"] .md-typeset details {
+
+  /* Угольный фон */
+  background: #242424;
+
+  /* Лёгкая окантовка */
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* ==========================================================================
+   ЗАГОЛОВОК БЛОКА
+   ========================================================================== */
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+
+  /* Полужирный текст */
+  font-weight: 600;
+
+  /* Разделитель */
+  border-bottom: 1px solid rgba(127, 127, 127, 0.08);
+}
+
+
+/* ==========================================================================
+   NOTE
+   ========================================================================== */
+
+.md-typeset .admonition.note,
+.md-typeset details.note {
+  border-left-color: #2563eb;
+}
+
+
+/* ==========================================================================
+   INFO
+   ========================================================================== */
+
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-left-color: #06b6d4;
+}
+
+
+/* ==========================================================================
+   TIP
+   ========================================================================== */
+
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-left-color: #10b981;
+}
+
+
+/* ==========================================================================
+   SUCCESS
+   ========================================================================== */
+
+.md-typeset .admonition.success,
+.md-typeset details.success {
+  border-left-color: #22c55e;
+}
+
+
+/* ==========================================================================
+   WARNING
+   ========================================================================== */
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-left-color: #f59e0b;
+}
+
+
+/* ==========================================================================
+   DANGER
+   ========================================================================== */
+
+.md-typeset .admonition.danger,
+.md-typeset details.danger {
+  border-left-color: #ef4444;
+}
+
+
+/* ==========================================================================
+   FAILURE
+   ========================================================================== */
+
+.md-typeset .admonition.failure,
+.md-typeset details.failure {
+  border-left-color: #dc2626;
+}
+
+
+/* ==========================================================================
+   QUESTION
+   ========================================================================== */
+
+.md-typeset .admonition.question,
+.md-typeset details.question {
+  border-left-color: #8b5cf6;
+}
+
+
+/* ==========================================================================
+   EXAMPLE
+   ========================================================================== */
+
+.md-typeset .admonition.example,
+.md-typeset details.example {
+  border-left-color: #6366f1;
+}
+
+
+/* ==========================================================================
+   QUOTE
+   ========================================================================== */
+
+.md-typeset .admonition.quote,
+.md-typeset details.quote {
+  border-left-color: #64748b;
+}
+
+/* ==========================================================================
+   FOOTER — LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+
+  /* Основной фон Footer */
+  --md-footer-bg-color: #f3f4f6;
+
+  /* Нижняя часть Footer */
+  --md-footer-bg-color--dark: #e5e7eb;
+
+  /* Основной текст */
+  --md-footer-fg-color: #1f2937;
+
+  /* Вторичный текст */
+  --md-footer-fg-color--light: #6b7280;
+}
+
+
+/* ==========================================================================
+   FOOTER — DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+
+  /* Основной фон Footer */
+  --md-footer-bg-color: #1c1c1c;
+
+  /* Нижняя часть Footer */
+  --md-footer-bg-color--dark: #151515;
+
+  /* Основной текст */
+  --md-footer-fg-color: #f3f4f6;
+
+  /* Вторичный текст */
+  --md-footer-fg-color--light: #9ca3af;
+}
+
+
+/* ==========================================================================
+   FOOTER STYLE
+   ========================================================================== */
+
+/* Верхняя граница Footer */
+.md-footer {
+  border-top: 1px solid rgba(127,127,127,.12);
+}
+
+/* Ссылки в Footer */
+.md-footer a {
+  transition: color .2s ease;
+}
+
+/* Hover ссылок */
+.md-footer a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+
+
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+/* Основная таблица */
+.md-typeset table:not([class]) {
+
+  /* Скругление */
+  border-radius: 10px;
+
+  /* Окантовка */
+  border: 1px solid;
+
+  /* Корректное отображение скругления */
+  overflow: hidden;
+
+  /* Убираем двойные границы */
+  border-collapse: separate;
+  border-spacing: 0;
+
+  /* Отступ сверху и снизу */
+  margin: 1rem 0;
+}
+
+/* Заголовок таблицы */
+.md-typeset table:not([class]) th {
+
+  font-weight: 600;
+}
+
+/* Ячейки */
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+
+  padding: .75rem 1rem;
+}
+
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) {
+
+  /* Окантовка таблицы */
+  border-color: rgba(17,24,39,.08);
+}
+
+/* Заголовок */
+[data-md-color-scheme="default"] .md-typeset table:not([class]) th {
+
+  background: #f3f4f6;
+
+  border-bottom: 1px solid rgba(17,24,39,.08);
+}
+
+/* Строки */
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tr {
+
+  background: #ffffff;
+}
+
+/* Hover строки */
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tbody tr:hover {
+
+  background: #f8fafc;
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) {
+
+  /* Окантовка таблицы */
+  border-color: rgba(255,255,255,.08);
+}
+
+/* Заголовок */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+
+  background: #242424;
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* Строки */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tr {
+
+  background: #1c1c1c;
+}
+
+/* Hover строки */
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) tbody tr:hover {
+
+  background: #2a2a2a;
+}
+
+
+
+/* ==========================================================================
+   HOVER STATES
+   ========================================================================== */
+
+/* Плавность для всех интерактивных элементов */
+a,
+button,
+.md-nav__link,
+.md-tabs__link,
+.md-search-result__article,
+.md-footer a {
+  transition:
+    color .2s ease,
+    background-color .2s ease,
+    opacity .2s ease;
+}
+
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] {
+
+  /* Hover фон */
+  --hover-bg: rgba(37, 99, 235, 0.08);
+
+  /* Hover текст */
+  --hover-color: #1d4ed8;
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+
+  /* Hover фон */
+  --hover-bg: rgba(96, 165, 250, 0.12);
+
+  /* Hover текст */
+  --hover-color: #93c5fd;
+}
+
+
+/* ==========================================================================
+   SIDEBAR
+   ========================================================================== */
+
+.md-nav__link:hover {
+  color: var(--hover-color);
+}
+
+
+/* ==========================================================================
+   TOP TABS
+   ========================================================================== */
+
+.md-tabs__link:hover {
+  color: var(--hover-color);
+}
+
+
+/* ==========================================================================
+   CONTENT LINKS
+   ========================================================================== */
+
+.md-typeset a:hover {
+  color: var(--hover-color);
+}
+
+
+/* ==========================================================================
+   SEARCH RESULTS
+   ========================================================================== */
+
+.md-search-result__article:hover {
+  background: var(--hover-bg);
+  border-radius: 8px;
+}
+
+
+/* ==========================================================================
+   FOOTER LINKS
+   ========================================================================== */
+
+.md-footer a:hover {
+  color: var(--hover-color);
+}
+
+
+/* ==========================================================================
+   BUTTONS
+   ========================================================================== */
+
+.md-button:hover {
+  background: var(--hover-bg);
+}
+
+
+/* ==========================================================================
+   TABLE ROWS
+   ========================================================================== */
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background: var(--hover-bg);
+}
+
+
+/* ==========================================================================
+   ADMONITION LINKS
+   ========================================================================== */
+
+.md-typeset .admonition a:hover {
+  color: var(--hover-color);
+}
+
+
+
+/* ==========================================================================
+   TABLE OF CONTENTS (TOC)
+   ========================================================================== */
+
+/* Контейнер оглавления */
+.md-sidebar--secondary {
+
+  /* Скругление */
+  border-radius: 10px;
+}
+
+/* Ссылки TOC */
+.md-nav--secondary .md-nav__link {
+
+  transition:
+    color .2s ease,
+    background-color .2s ease;
+
+  border-radius: 6px;
+}
+
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .md-sidebar--secondary {
+
+  /* Фон TOC */
+  background: #f8fafc;
+}
+
+/* Активный пункт */
+[data-md-color-scheme="default"]
+.md-nav--secondary .md-nav__link--active {
+
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+/* Hover */
+[data-md-color-scheme="default"]
+.md-nav--secondary .md-nav__link:hover {
+
+  background: rgba(37,99,235,.08);
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .md-sidebar--secondary {
+
+  /* Угольный фон */
+  background: #242424;
+}
+
+/* Активный пункт */
+[data-md-color-scheme="slate"]
+.md-nav--secondary .md-nav__link--active {
+
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+/* Hover */
+[data-md-color-scheme="slate"]
+.md-nav--secondary .md-nav__link:hover {
+
+  background: rgba(96,165,250,.12);
+}
+
+
+
+/* Активный пункт TOC */
+.md-nav--secondary .md-nav__link--active {
+
+  border-left: 3px solid var(--md-accent-fg-color);
+
+  padding-left: .6rem;
+
+  font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   LINKS
+   ========================================================================== */
+
+/* Все ссылки в контенте */
+.md-typeset a {
+
+  /* Убираем стандартное подчёркивание */
+  text-decoration: none;
+
+  /* Плавность */
+  transition:
+    color .2s ease,
+    border-color .2s ease;
+
+  /* Тонкое подчёркивание */
+  border-bottom: 1px solid transparent;
+}
+
+
+/* ==========================================================================
+   LIGHT THEME
+   ========================================================================== */
+
+[data-md-color-scheme="default"] .md-typeset a {
+
+  /* Основной цвет ссылки */
+  color: #2563eb;
+}
+
+/* Hover */
+[data-md-color-scheme="default"] .md-typeset a:hover {
+
+  color: #1d4ed8;
+
+  border-bottom-color: #1d4ed8;
+}
+
+
+/* ==========================================================================
+   DARK THEME
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] .md-typeset a {
+
+  /* Основной цвет ссылки */
+  color: #60a5fa;
+}
+
+/* Hover */
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+
+  color: #93c5fd;
+
+  border-bottom-color: #93c5fd;
+}
+
+
+
+
+/* Ссылки */
+.md-typeset a {
+  font-weight: 500;
+}
+
+/* Hover */
+.md-typeset a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
