@@ -27,6 +27,9 @@
         proxy_pass http://unix:/dev/shm/xrxh.socket;
     }
 ```
+```
+nginx -t && systemctl reload nginx
+```
 
 ### Пример отредактированного файла  `nginx.conf`
 
